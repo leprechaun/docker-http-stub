@@ -6,8 +6,7 @@ app = Flask(__name__)
 
 @app.route('/<int:status>', methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'])
 def stub(status):
-    wait = request.args.get('wait', '0')
-    wait = int(wait)
+    wait = int(request.args.get('wait', '0'))
     time.sleep(int(wait))
 
     return 'Hello, World!', status
